@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <?!= include('script_css.css') ?>
+    <?!= include('script_js.js') ?> 
+  </head>
+  <body>
+    <div id="data"></div>
+    <h4>Send a message:</h4>
+    <table>
+      <tr>
+        <td>name:</td>
+        <td><input type="text" id="msg_name"></td>
+      </tr>
+      <tr>
+         <td>message:</td>
+         <td><textarea id="msg_txt" rows="4" cols="50"></textarea></td>
+      </tr>
+    </table>
+    <div><button onclick="sendMsg()">Send</button> </div>
+    <div id="sentStatus"></div>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!-- Custom JavaScript -->
+<script>
+    window.onload = function(){
+      google.script.run.withSuccessHandler(showData).getData();
+    }
+    function showData(data){
+      document.getElementById("data").innerHTML = data;
+    }
+    
+    function sendMsg(){
+      var now = new Date();
+      var msg_name=document.getElementById("msg_name").value;
+      if (msg_name.length==0){
+          alert("Please, enter your name");
+          return;
+      }
+      var msg_txt=document.getElementById("msg_txt").value;
+      if (msg_txt.length==0){
+          alert("Please, enter a message");
+          return;
+      }
+      google.script.run.withSuccessHandler(sent).sendMsg("From: "+msg_name.toString() +"<br/>Message: "+ msg_txt.toString());
+    }
+    function sent(data){
+      document.getElementById("sentStatus").innerHTML = data;
+      google.script.run.withSuccessHandler(showData).getData();
+      document.getElementById("msg_name").value="";
+      document.getElementById("msg_txt").value="";
+    }
+</script>
